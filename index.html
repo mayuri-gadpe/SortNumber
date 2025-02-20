@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Numbers in Descending Order</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sort Numbers in Descending Order</h2>
+        <input type="text" id="userInput" placeholder="Enter numbers (e.g. 5,2,9,1)">
+        <button onclick="sortNumbers()">Sort</button>
+        <p><strong>Sorted Array:</strong> <span id="output"></span></p>
+    </div>
+
+    <script>
+        function sortNumbers() {
+            let input = document.getElementById("userInput").value;
+            
+           
+            let numbers = input.split(",").map(num => parseFloat(num.trim()));
+
+        
+            if (numbers.some(isNaN)) {
+                document.getElementById("output").innerText = "Please enter valid numbers!";
+                return;
+            }
+
+          
+            numbers.sort((a, b) => b - a);
+
+            document.getElementById("output").innerText = numbers.join(", ");
+        }
+    </script>
+
+</body>
+</html>
